@@ -1,0 +1,79 @@
+<nav
+  class="flex justify-between h-[4.25rem] w-full pb-4 z-[70] select-none"
+>
+  <h1
+    class="bg-white px-2 -translate-y-2 rounded-[2px] underline font-black text-black text-2xl border-[5px] border-black shadow-neo-lg cursor-pointer active:shadow hover:shadow-neo-sm transition-all"
+    onclick="location.href = '/';"
+  >
+    HelperHub
+  </h1>
+  <ul class="flex justify-center items-center gap-3 pr-6">
+    <li class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
+      <p class="font-bold text-md">Profile</p>
+    </li>
+    <li id="logout-btn" onclick="logout()" class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
+      <p class="font-bold text-md">Logout</p>
+    </li>
+  </ul>
+</nav>
+<!-- Modal for Login -->
+<div
+  class="relative -z-50 pointer-events-none"
+  id="modal-login"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true"
+>
+  <div
+    class="z-50 fixed inset-0 bg-gray-500 bg-opacity-75 opacity-0 transition-opacity ease-out duration-300"
+    id="overlay-login"
+    onclick="closeModal('login')"
+  ></div>
+
+  <div class="pointer-events-none z-50 fixed inset-0 overflow-y-auto">
+    <div
+      class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0"
+    >
+      <div
+        id="modal-panel-login"
+        class="pointer-events-auto relative transform overflow-hidden rounded-sm bg-white text-left shadow-neo-sm border-4 border-black transition-all opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 sm:my-8 sm:w-full sm:max-w-lg"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <div class="sm:flex sm:items-start">
+            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+              <h3
+                class="text-lg font-medium leading-6 text-gray-900"
+                id="modal-title"
+              >
+                Choose the type of account
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                  Are you a reviewer or a helper?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+          <button
+            type="button"
+            onclick="location.href = '/login?v=true&type=user'"
+            class="inline-flex w-full justify-center rounded-[1px] border-[3px] border-black bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-neo-md -rotate-1 hover:bg-blue-700 hover:rotate-0 hover:shadow-neo-sm focus:outline-none active:shadow-blue-400 sm:ml-3 sm:w-auto sm:text-sm"
+          >
+            Reviewer
+          </button>
+          <button
+            type="button"
+            onclick="location.href = '/login?v=true&type=helper'"
+            class="mt-3 inline-flex w-full justify-center rounded-[1px] border-[3px] border-black bg-green-600 px-4 py-2 text-base font-medium text-white shadow-neo-md -rotate-1 hover:bg-green-700 hover:rotate-0 hover:shadow-neo-sm focus:outline-none active:shadow-green-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+          >
+            Helper
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

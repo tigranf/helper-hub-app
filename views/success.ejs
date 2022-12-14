@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/output.css" rel="stylesheet" />
+    <script src="/scripts/script.js" defer></script>
+    <title>Helper Hub</title>
+  </head>
+  <body class="bg-teal-400 font-oswald">
+    <div class="flex flex-col justify-center items-center h-screen">
+      <% if (account.title) { %>
+          <h3 class="text-2xl"><span id="type">Helper</span> Account</h3>
+      <% } else { %>
+          <h3 class="text-2xl"><span id="type">Reviewer</span> Account</h3>
+      <% } %>
+      <a href="/" class="text-8xl">SUCCESS</a>
+      <h2 class="text-4xl font-medium">
+        Welcome <%= account.fname + " " + account.lname %>!
+      </h2>
+      <h3 class="text-2xl mb-2 font-semibold">One Moment Please</h3>
+      <div
+        style="border-top-color: transparent"
+        class="w-16 h-16 border-[5px] border-black border-solid rounded-full animate-spin"
+      ></div>
+
+      <img
+        src="/images/blob4.svg"
+        alt="blob"
+        class="absolute drop-shadow-neo-olive -z-10"
+      />
+      <script>
+        window.addEventListener("DOMContentLoaded", _ => {
+          document.querySelector('#type').innerHTML == 'Helper' ? loginSuccess('helper') : loginSuccess('user');
+        });
+      </script>
+    </div>
+  </body>
+</html>
