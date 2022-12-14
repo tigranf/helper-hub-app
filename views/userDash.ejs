@@ -5,44 +5,218 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- FontAwesome 6.2.0 CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="/output.css" rel="stylesheet" />
     <script src="/scripts/script.js" defer></script>
     <title>Helper Hub</title>
   </head>
-  <body class="bg-fuchsia-400 font-oswald">
+  <body
+    class="bg-fuchsia-400 font-oswald bg-[url('/images/blob-scatter-2.svg')]"
+  >
     <%- include('partials/navDash.ejs') %>
     <main>
       <div class="w-72 mx-auto">
         <div class="relative mb-4">
-          <label for="search" class="leading-7 text-sm text-gray-600"
+          <label for="search" class="leading-7 text-sm text-slate-00"
             >Search</label
           >
-          <div class="flex gap-2">
+          <div class="flex gap-2 drop-shadow-neo-purple">
             <input
               type="search"
               id="search"
               name="search"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
             />
-            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                <i class="fas fa-search"></i>
+            <button
+              class="inline-flex text-white bg-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:drop-shadow-neo-sm active:drop-shadow-none rounded-[1px] text-lg transition-all"
+            >
+              <i class="fas fa-search"></i>
             </button>
           </div>
         </div>
       </div>
       <div class="flex justify-center items-center pt-8 pl-4">
         <p class="text-8xl">
-          Welcome <%= `${account.fname} ${account.fname}!` %> 
+          Welcome <%= `${account.fname} ${account.fname}!` %>
         </p>
-        <img
-          src="/images/blob4.svg"
-          alt="blob"
-          class="absolute drop-shadow-neo-olive -z-10"
-        />
       </div>
+
+      <section class="text-gray-800 body-font -rotate-1">
+        <div class="container px-5 py-24 mx-auto flex flex-wrap">
+          <div class="flex flex-wrap -m-4">
+            <div class="p-4 lg:w-1/2 md:w-full">
+              <div
+                class="flex border-2 bg-white shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col"
+              >
+                <div
+                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0"
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-8 h-8 stroke-[1.5]"
+                    viewBox="0 0 20 20"
+                  >
+                    <!-- <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path> -->
+                    <path
+                      d="M17.218,2.268L2.477,8.388C2.13,8.535,2.164,9.05,2.542,9.134L9.33,10.67l1.535,6.787c0.083,0.377,0.602,0.415,0.745,0.065l6.123-14.74C17.866,2.46,17.539,2.134,17.218,2.268 M3.92,8.641l11.772-4.89L9.535,9.909L3.92,8.641z M11.358,16.078l-1.268-5.613l6.157-6.157L11.358,16.078z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                    Shooting Stars
+                  </h2>
+                  <p class="leading-relaxed text-base">
+                    Look for the Helpers. Find the Helpers. Rate their service.
+                    Leave a comment!
+                  </p>
+                  <a class="mt-3 text-indigo-500 inline-flex items-center"
+                    >EXPLORE
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 lg:w-1/2 md:w-full">
+              <div
+                class="flex border-2 bg-white shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col"
+              >
+                <div
+                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0"
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    class="w-10 h-10"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                  </svg>
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3">
+                    The Profile
+                  </h2>
+                  <p class="leading-relaxed text-base">
+                    Head over to the Profile section to view and update your
+                    information.
+                  </p>
+                  <a class="mt-3 text-indigo-500 inline-flex items-center"
+                    >MY PROFILE
+                    <svg
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div
+          class="flex flex-col w-96 justify-around mx-auto border-black border-4 shadow-neo-md rounded-sm -rotate-1 my-16 hover:shadow-neo-lg transition-all"
+        >
+          <div
+            class="h-48 w-full bg-[url('/images/circle-scatter-1.svg')] bg-cover"
+          ></div>
+          <div class="flex items-center bg-white w-full mx-auto">
+            <div class="relative flex flex-col items-center w-full">
+              <div
+                class="h-24 w-24 md rounded-full relative avatar flex items-end justify-end text-indigo-400 min-w-max -top-16 bg-indigo-200 row-start-1 row-end-3 text-indigo-650 ring-1 ring-white"
+              >
+                <img
+                  class="h-24 w-24 rounded-full relative bg-white border-2 border-black drop-shadow-neo-purple"
+                  src="<%= account.avatar %>"
+                  alt=""
+                />
+              </div>
+              <div
+                class="flex flex-col space-y-1 justify-center items-center -mt-12 mx-4"
+              >
+                <span class="text-md whitespace-nowrap text-black font-semibold"
+                  ><%= account.fname %>
+                  <span class="text-violet-800"
+                    ><%= account.title %></span
+                  ></span
+                ><span class="text-md whitespace-nowrap text-black"
+                  ><%= `email: ${account.email}` %></span
+                >
+                <p class="text-sm text-black"><%= account.bio %></p>
+                <div class="py-2 flex space-x-2">
+                  <button
+                    class="flex justify-center max-h-max whitespace-nowrap focus:outline-none focus:ring focus:border-blue-300 rounded max-w-max border bg-transparent border-indigo-400 text-indigo-400 hover:border-indigo-800 px-4 py-1 items-center hover:shadow-lg"
+                  >
+                    <span class="mr-2"></span>Profile<span
+                      class="ml-2"
+                    ></span></button
+                  ><button
+                    class="flex justify-center max-h-max whitespace-nowrap focus:outline-none focus:ring focus:border-blue-300 rounded max-w-max text-black bg-green-500 hover:bg-green-600 px-4 py-1 items-center hover:shadow-lg"
+                  >
+                    <span class="mr-2"
+                      ><svg
+                        height="20"
+                        width="20"
+                        viewBox="0 0 20 20"
+                        class="fill-current text-red-100"
+                      >
+                        <path
+                          class="stroke-white fill-current stroke-1"
+                          d="M5.229,6.531H4.362c-0.239,0-0.434,0.193-0.434,0.434c0,0.239,0.194,0.434,0.434,0.434h0.868c0.24,0,0.434-0.194,0.434-0.434C5.663,6.724,5.469,6.531,5.229,6.531 M10,6.531c-1.916,0-3.47,1.554-3.47,3.47c0,1.916,1.554,3.47,3.47,3.47c1.916,0,3.47-1.555,3.47-3.47C13.47,8.084,11.916,6.531,10,6.531 M11.4,11.447c-0.071,0.164-0.169,0.299-0.294,0.406c-0.124,0.109-0.27,0.191-0.437,0.248c-0.167,0.057-0.298,0.09-0.492,0.098v0.402h-0.35v-0.402c-0.21-0.004-0.352-0.039-0.527-0.1c-0.175-0.064-0.324-0.154-0.449-0.27c-0.124-0.115-0.221-0.258-0.288-0.428c-0.068-0.17-0.1-0.363-0.096-0.583h0.664c-0.004,0.259,0.052,0.464,0.169,0.613c0.116,0.15,0.259,0.229,0.527,0.236v-1.427c-0.159-0.043-0.268-0.095-0.425-0.156c-0.157-0.061-0.299-0.139-0.425-0.235C8.852,9.752,8.75,9.631,8.672,9.486C8.594,9.34,8.556,9.16,8.556,8.944c0-0.189,0.036-0.355,0.108-0.498c0.072-0.144,0.169-0.264,0.292-0.36c0.122-0.097,0.263-0.17,0.422-0.221c0.159-0.052,0.277-0.077,0.451-0.077V7.401h0.35v0.387c0.174,0,0.29,0.023,0.445,0.071c0.155,0.047,0.29,0.118,0.404,0.212c0.115,0.095,0.206,0.215,0.274,0.359c0.067,0.146,0.103,0.315,0.103,0.508H10.74c-0.007-0.201-0.06-0.354-0.154-0.46c-0.096-0.106-0.199-0.159-0.408-0.159v1.244c0.174,0.047,0.296,0.102,0.462,0.165c0.167,0.063,0.314,0.144,0.443,0.241c0.128,0.099,0.23,0.221,0.309,0.366c0.077,0.146,0.116,0.324,0.116,0.536C11.509,11.092,11.473,11.283,11.4,11.447 M18.675,4.795H1.326c-0.479,0-0.868,0.389-0.868,0.868v8.674c0,0.479,0.389,0.867,0.868,0.867h17.349c0.479,0,0.867-0.389,0.867-0.867V5.664C19.542,5.184,19.153,4.795,18.675,4.795M1.76,5.664c0.24,0,0.434,0.193,0.434,0.434C2.193,6.336,2,6.531,1.76,6.531S1.326,6.336,1.326,6.097C1.326,5.857,1.52,5.664,1.76,5.664 M1.76,14.338c-0.24,0-0.434-0.195-0.434-0.434c0-0.24,0.194-0.434,0.434-0.434s0.434,0.193,0.434,0.434C2.193,14.143,2,14.338,1.76,14.338 M18.241,14.338c-0.24,0-0.435-0.195-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,14.143,18.48,14.338,18.241,14.338 M18.675,12.682c-0.137-0.049-0.281-0.08-0.434-0.08c-0.719,0-1.302,0.584-1.302,1.303c0,0.152,0.031,0.297,0.08,0.434H2.981c0.048-0.137,0.08-0.281,0.08-0.434c0-0.719-0.583-1.303-1.301-1.303c-0.153,0-0.297,0.031-0.434,0.08V7.318c0.136,0.049,0.28,0.08,0.434,0.08c0.718,0,1.301-0.583,1.301-1.301c0-0.153-0.032-0.298-0.08-0.434H17.02c-0.049,0.136-0.08,0.28-0.08,0.434c0,0.718,0.583,1.301,1.302,1.301c0.152,0,0.297-0.031,0.434-0.08V12.682z M18.241,6.531c-0.24,0-0.435-0.194-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,6.336,18.48,6.531,18.241,6.531 M9.22,8.896c0,0.095,0.019,0.175,0.058,0.242c0.039,0.066,0.088,0.124,0.148,0.171c0.061,0.047,0.13,0.086,0.21,0.115c0.079,0.028,0.11,0.055,0.192,0.073V8.319c-0.21,0-0.322,0.044-0.437,0.132C9.277,8.54,9.22,8.688,9.22,8.896 M15.639,12.602h-0.868c-0.239,0-0.434,0.195-0.434,0.434c0,0.24,0.194,0.436,0.434,0.436h0.868c0.24,0,0.434-0.195,0.434-0.436C16.072,12.797,15.879,12.602,15.639,12.602 M10.621,10.5c-0.068-0.052-0.145-0.093-0.23-0.124c-0.086-0.031-0.123-0.06-0.212-0.082v1.374c0.209-0.016,0.332-0.076,0.465-0.186c0.134-0.107,0.201-0.281,0.201-0.516c0-0.11-0.02-0.202-0.062-0.277C10.743,10.615,10.688,10.551,10.621,10.5"
+                        ></path></svg></span
+                    >TIP <span class="ml-2"></span>
+                  </button>
+                </div>
+                <div
+                  class="py-4 flex justify-center items-center w-full divide-x divide-gray-400 divide-solid"
+                >
+                  <span
+                    class="text-center px-2 flex items-center justify-center gap-1"
+                    ><span class="font-bold text-black"
+                      ><%= account.rating %></span
+                    ><span class="text-black"
+                      ><img
+                        class="w-8 rounded-full"
+                        src="/images/orange_star.png"
+                        alt="star" /></span
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>

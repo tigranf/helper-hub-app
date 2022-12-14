@@ -22,6 +22,7 @@
       <h3 class="text-2xl mb-2 font-semibold">One Moment Please</h3>
       <div
         style="border-top-color: transparent"
+        id="spinner"
         class="w-16 h-16 border-[5px] border-black border-solid rounded-full animate-spin"
       ></div>
 
@@ -33,6 +34,9 @@
       <script>
         window.addEventListener("DOMContentLoaded", _ => {
           document.querySelector('#type').innerHTML == 'Helper' ? loginSuccess('helper') : loginSuccess('user');
+          setTimeout(_ => {
+            document.querySelector('#spinner').click();
+          }, 900)
         });
       </script>
     </div>

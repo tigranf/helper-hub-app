@@ -9,8 +9,16 @@
   </h1>
   <ul class="flex justify-center items-center gap-3 pr-6">
     <li class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
-      <p class="font-bold text-md">Profile</p>
+      <p class="font-bold text-md flex justify-center items-center">
+        <img class="rounded-full w-5 h-5 mr-1" src="<%= account.avatar %> " alt="avatar" />
+        Profile
+      </p>
     </li>
+    <% if (!account.title) { %>
+      <li class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
+        <p class="font-bold text-md">Explore</p>
+      </li>     
+    <% } %>
     <li id="logout-btn" onclick="logout()" class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
       <p class="font-bold text-md">Logout</p>
     </li>
