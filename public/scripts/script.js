@@ -1,5 +1,3 @@
-const { cloneDeep } = require("sequelize/types/utils");
-
 function openModal(str) {
   console.log('opening modal:', str);
   if (document.querySelector("#star"))

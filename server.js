@@ -232,11 +232,24 @@ app.post('/logout', (req, res) => {
     });
 });
 
-// USE DASHBOARD
+// USER DASHBOARD
 app.get('/userDash', checkAuth, (req, res) => { res.render('userDash', { account: req.session.user }) });
 
 // HELPER DASHBOARD
 app.get('/helperDash', checkAuth, (req, res) => { res.render('helperDash', { account: req.session.helper }) });
+
+// HELPER PROFILE VIEW ROUTE
+app.get('/profile/:id', checkAuth, async (req, res) => {
+    let helperProfile = await Helper.findOne({
+        where: {
+            id: req.params.id,
+        }
+    }).catch(err => {
+        console.log(err);
+        res.redirect('/error');
+    });
+    res.render('helperProfile', { account: helperProfile });
+});
 
 // ERROR AND LOST ROUTES
 app.get('/error', (req, res) => {
