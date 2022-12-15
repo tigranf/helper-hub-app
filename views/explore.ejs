@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="/output.css" rel="stylesheet" />
+    <script src="/scripts/script.js" defer></script>
+    <title>Helper Hub</title>
+  </head>
+  <body
+    class="font-oswald bg-[url('/images/blob-scatter-3.svg')]"
+  >
+    <%- include('partials/navDash.ejs') %>
+    <main>
+      <div class="w-72 mx-auto">
+        <div class="relative mb-4">
+          <label for="search" class="leading-7 text-sm text-slate-00"
+            >Search</label
+          >
+          <div class="flex gap-2 drop-shadow-neo-purple">
+            <input
+              type="search"
+              id="search"
+              name="search"
+              class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
+            />
+            <button
+              class="inline-flex text-white bg-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:drop-shadow-neo-sm active:drop-shadow-none rounded-[1px] text-lg transition-all"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

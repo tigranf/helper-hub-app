@@ -251,6 +251,11 @@ app.get('/profile/:id', checkAuth, async (req, res) => {
     res.render('helperProfile', { account: helperProfile });
 });
 
+// EXPLORE ROUTE
+app.get('/explore/', checkAuth, async (req, res) => {
+    res.render('explore', { account: req.session.user });
+});
+
 // ERROR AND LOST ROUTES
 app.get('/error', (req, res) => {
     res.render('error');

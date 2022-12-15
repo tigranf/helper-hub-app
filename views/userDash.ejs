@@ -21,26 +21,6 @@
   >
     <%- include('partials/navDash.ejs') %>
     <main>
-      <div class="w-72 mx-auto">
-        <div class="relative mb-4">
-          <label for="search" class="leading-7 text-sm text-slate-00"
-            >Search</label
-          >
-          <div class="flex gap-2 drop-shadow-neo-purple">
-            <input
-              type="search"
-              id="search"
-              name="search"
-              class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
-            />
-            <button
-              class="inline-flex text-white bg-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:drop-shadow-neo-sm active:drop-shadow-none rounded-[1px] text-lg transition-all"
-            >
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </div>
       <div class="flex justify-center items-center pt-8 pl-4">
         <p class="text-8xl">Welcome <%= `${account.fname}!` %></p>
       </div>
@@ -50,10 +30,10 @@
           <div class="flex flex-wrap -m-4 mx-auto">
             <div class="p-4 w-[90%] lg:w-1/2 md:w-full">
               <div
-                class="flex border-4 bg-[url('/images/circle-scatter-1.svg')] shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col"
+                class="flex border-2 bg-[url('/images/circle-scatter-1.svg')] shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col hover:shadow-neo-sm hover:rotate-1 hover:scale-105 transition-all"
               >
                 <div
-                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full drop-shadow-neo-purple border-2 border-black bg-indigo-100 text-indigo-500 flex-shrink-0"
+                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full drop-shadow-neo-purple border-4 border-black bg-indigo-100 text-indigo-500 flex-shrink-0"
                 >
                   <svg
                     fill="none"
@@ -78,6 +58,7 @@
                   </p>
                   <a
                     class="mt-3 text-indigo-500 inline-flex items-center underline font-medium"
+                    href="/explore"
                     >EXPLORE
                     <svg
                       fill="none"
@@ -96,10 +77,10 @@
             </div>
             <div class="p-4 w-[90%] lg:w-1/2 md:w-full translate-x-8">
               <div
-                class="flex border-4 bg-[url('/images/circle-scatter-1.svg')] shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col"
+                class="flex border-2 bg-[url('/images/circle-scatter-1.svg')] shadow-neo-lg rounded-sm border-black p-8 sm:flex-row flex-col hover:shadow-neo-sm hover:rotate-1 hover:scale-105 transition-all"
               >
                 <div
-                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full drop-shadow-neo-purple border-2 border-black bg-indigo-100 text-indigo-500 flex-shrink-0"
+                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full drop-shadow-neo-purple border-4 border-black bg-indigo-100 text-indigo-500 flex-shrink-0"
                 >
                   <svg
                     fill="none"
@@ -124,6 +105,7 @@
                   </p>
                   <a
                     class="mt-3 text-indigo-500 inline-flex items-center underline font-medium"
+                    href="/user/<%= account.id %>"
                     >MY PROFILE
                     <svg
                       fill="none"
