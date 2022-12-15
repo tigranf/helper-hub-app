@@ -10,7 +10,7 @@
         >
           <img
             class="h-24 w-24 p-1 rounded-full relative border-[4px] bg-white border-black drop-shadow-neo-sm"
-            src="<%= account.avatar %>"
+            src="<%= helper.avatar %>"
             alt=""
           />
         </div>
@@ -18,13 +18,13 @@
           class="flex flex-col space-y-1 justify-center items-center -mt-12 mx-4"
         >
           <span class="text-md whitespace-nowrap text-black font-semibold"
-            ><%= account.fname %>
-            <span class="text-violet-800"><%= account.title %></span></span
+            ><%= helper.fname %>
+            <span class="text-violet-800"><%= helper.title %></span></span
           ><span class="text-md whitespace-nowrap text-black"
-            ><%= `email: ${account.email}` %></span
+            ><%= `email: ${helper.email}` %></span
           >
           <p class="text-sm text-black">
-            <%= account.lname %>
+            <%= helper.lname %>
           </p>
           <div class="py-2 flex space-x-2">
             <button
@@ -57,7 +57,7 @@
           >
             <span
               class="text-center px-2 flex items-center justify-center gap-1"
-              ><span class="font-bold text-black"><%= account.rating %></span
+              ><span class="font-bold text-black"><%= helper.rating %></span
               ><span class="text-black"
                 >
                 <svg class="h-6 w-6" viewBox="0 0 20 20">

@@ -41,6 +41,15 @@
           </div>
         </div>
       </div>
+      <section>
+        <div class="container">
+            <% for( let helper of helpers ) { %>
+                
+                <%- include('partials/profileComponent.ejs', { helper }) %>
+
+            <% } %>
+        </div>
+      </section>
     </main>
   </body>
 </html>

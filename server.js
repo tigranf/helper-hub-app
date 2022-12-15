@@ -253,7 +253,9 @@ app.get('/profile/:id', checkAuth, async (req, res) => {
 
 // EXPLORE ROUTE
 app.get('/explore/', checkAuth, async (req, res) => {
-    res.render('explore', { account: req.session.user });
+    let helpers = await Helper.findAll({})
+    console.log("🚀 ~ file: server.js:257 ~ app.get ~ helpers", helpers)
+    res.render('explore', { account: req.session.user, helpers });
 });
 
 // ERROR AND LOST ROUTES
