@@ -47,10 +47,10 @@ function closeModal(str) {
   panel.classList.add("sm:translate-y-0");
 }
 
-function validatePass() {
+function validatePass(str) {
   const pass = document.getElementById("pass").value;
   const confirmPass = document.getElementById("confirmPass").value;
-  const submitBtn = document.getElementById("submit-btn");
+  const submitBtn = document.getElementById("submit-btn-" + str);
   const alertDiv = document.getElementById("wrongPass");
   if (pass.length > 0 && confirmPass.length > 0 && pass != confirmPass) {
     alertDiv.innerHTML = "🔥 Use same password";

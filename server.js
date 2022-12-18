@@ -73,7 +73,7 @@ app.post("/userSignUp", async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  res.redirect("/login?type=user");
+  res.redirect("/login?v=true&type=user");
 });
 
 //HELPER SIGNUP
@@ -129,7 +129,7 @@ app.post("/helperSignUp", async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  res.redirect("/login?type=helper");
+  res.redirect("/login?v=true&type=helper");
 });
 
 // LOGIN
@@ -238,7 +238,29 @@ app.get("/userDash", checkAuth, (req, res) => {
 
 // USER PROFILE
 app.get("/user/:id", checkAuth, (req, res) => {
-  
+  if (!req.session.user) {
+    res.redirect("/error");
+    console.log("not user account");
+    return;
+  }
+  res.render("userProfile", { account: req.session.user });
+});
+app.post("/user/edit/:id", checkAuth, async (req, res) => {
+  await User.update(
+    {
+      fname: req.body.fName,
+      lname: req.body.lName,
+    },
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.user = await User.findOne({where: {id: req.params.id}});
+  res.render("userProfile", { account: req.session.user });
 });
 
 // HELPER DASHBOARD
@@ -295,7 +317,7 @@ app.post("/explore/search", checkAuth, async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  console.log("🚀 ~ file: server.js:290 ~ app.post ~ helpers", helpers)
+  console.log("🚀 ~ file: server.js:290 ~ app.post ~ helpers", helpers);
   res.render("explore", { account: req.session.user, helpers });
 });
 
