@@ -21,27 +21,30 @@
   >
     <%- include('partials/navDash.ejs') %>
     <main>
-      <div class="w-72 mx-auto">
-        <div class="relative mb-4">
-          <label for="search" class="leading-7 text-sm text-slate-00"
-            >Search</label
-          >
-          <div class="flex gap-2 drop-shadow-neo-purple">
-            <input
-              type="search"
-              id="search"
-              name="search"
-              placeholder="Enter name, job title, email"
-              class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
-            />
-            <button
-              class="inline-flex text-white bg-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:drop-shadow-neo-sm active:drop-shadow-none rounded-[1px] text-lg transition-all"
+      <form action="/explore/search" method="post">
+        <div class="w-72 mx-auto">
+          <div class="relative mb-4">
+            <label for="search" class="leading-7 text-sm text-slate-00"
+              >Search</label
             >
-              <i class="fas fa-search"></i>
-            </button>
+            <div class="flex gap-2 drop-shadow-neo-purple">
+              <input
+                type="search"
+                id="search"
+                name="query"
+                placeholder="Enter name, job title, email"
+                class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
+              />
+              <button
+                type="submit"
+                class="inline-flex text-white bg-indigo-500 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:drop-shadow-neo-sm active:drop-shadow-none rounded-[1px] text-lg transition-all"
+              >
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
       <section>
         <div class="">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
