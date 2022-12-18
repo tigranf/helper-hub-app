@@ -1,5 +1,6 @@
-<div class="flex flex-col w-96 justify-around mx-auto border-black border-4 shadow-neo-md rounded-sm -rotate-1 my-16 hover:shadow-neo-lg transition-all">
-    <div class="h-48 w-full bg-[url('/images/circle-scatter-6.svg')] bg-cover border-b-2 border-b-black">
+<div class="flex flex-col w-11/12 -translate-x-1 justify-around mx-auto border-black border-4 shadow-neo-md rounded-sm -rotate-1 my-16 hover:shadow-neo-lg hover:rotate-0 hover:translate-x-0 transition-all">
+    <div class="h-48 w-full border-b-2 border-b-black">
+      <img src="/images/circle-scatter-<%- (Math.floor(Math.random() * 20 + 1)).toString() %>.svg" alt="circles" class="">
     </div>
     <div
       class="flex items-center bg-white w-full mx-auto "
@@ -21,13 +22,14 @@
             ><%= helper.fname %>
             <span class="text-violet-800"><%= helper.title %></span></span
           ><span class="text-md whitespace-nowrap text-black"
-            ><%= `email: ${helper.email}` %></span
+            ><i class="fa fa-envelope-square mr-1" aria-hidden="true"></i><%= `${helper.email}` %></span
           >
           <p class="text-sm text-black">
-            <%= helper.lname %>
+            <%= helper.bio %>
           </p>
           <div class="py-2 flex space-x-2">
             <button
+              onclick="window.location.href = '/profile/<%= helper.id %>'"
               class="flex justify-center max-h-max whitespace-nowrap focus:outline-none rounded-sm max-w-max border-black rotate-1 -translate-y-[2px] transition-all
                     shadow-neo-sm active:shadow-none border-2 bg-yellow-100 text-indigo-900 hover:border-indigo-800 px-4 py-1 items-center hover:shadow-lg"
             >

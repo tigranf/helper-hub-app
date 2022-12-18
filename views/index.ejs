@@ -9,10 +9,12 @@
     <title>Helper Hub</title>
   </head>
 
-  <body class="bg-lightkhaki font-oswald select-none overflow-x-hidden">
+  <body
+    class="bg-lightkhaki font-oswald select-none overflow-x-hidden flex flex-col justify-center items-center w-screen"
+  >
     <%- include('partials/nav.ejs') %>
     <section
-      class="flex flex-col justify-center items-center min-h-screen relative"
+      class="flex flex-col justify-center items-center min-h-screen relative w-screen"
     >
       <img
         src="/images/blob1.svg"
@@ -107,7 +109,10 @@
         </div>
       </div>
     </section>
-    <section class="bg-black min-h-screen relative leading-relaxed">
+
+    <section
+      class="bg-black min-h-screen sm:min-h-full w-screen relative leading-relaxed"
+    >
       <svg
         class="absolute -top-24 fill-black stroke-black"
         id="clouds"
@@ -194,11 +199,12 @@
         ></path>
       </svg>
     </section>
-    <section class="min-h-screen relative flex flex-col justify-center">
-      <!-- <div class="pointer-events-none absolute -z-20"><iframe src="https://giphy.com/embed/YWxTptxzTKVNOWKvqA" width="100%" height="100%" frameBorder="0"></iframe></div> -->
+
+    <section
+      class="min-h-screen sm:min-h-full relative flex flex-col justify-center container"
+    >
       <div
-        class="pointer-events-none invert"
-        style="width: 100%; height: 0; padding-bottom: 81%; position: relative"
+        class="pointer-events-none invert brightness-150 max-w-md mx-auto relative pb-[50%] w-5/6 -translate-y-12"
       >
         <iframe
           src="https://giphy.com/embed/5WeTyHJzsnQiMGxVTe"
@@ -211,9 +217,15 @@
         ></iframe>
       </div>
       <div class="pt-8 pl-2 leading-relaxed">
-        <p
-          class="sm:text-4xl text-3xl mb-4 font-medium text-black"
-        >
+        <div class="pointer-events-none absolute -z-20">
+          <iframe
+            src="https://giphy.com/embed/YWxTptxzTKVNOWKvqA"
+            width="100%"
+            height="100%"
+            frameBorder="0"
+          ></iframe>
+        </div>
+        <p class="sm:text-4xl text-3xl mb-4 font-medium text-black">
           Work in the
           <span class="text-blue-700 text-4xl">service</span> industry?
         </p>
@@ -232,6 +244,7 @@
       >
         Get Started
       </button>
+      
     </section>
 
     <!-- Contact -->

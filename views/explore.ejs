@@ -31,6 +31,7 @@
               type="search"
               id="search"
               name="search"
+              placeholder="Enter name, job title, email"
               class="w-full bg-white rounded-[1px] focus:drop-shadow-neo-sm text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-all duration-200 ease-in-out"
             />
             <button
@@ -42,12 +43,12 @@
         </div>
       </div>
       <section>
-        <div class="container">
-            <% for( let helper of helpers ) { %>
-                
-                <%- include('partials/profileComponent.ejs', { helper }) %>
-
-            <% } %>
+        <div class="">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                <% for( let helper of helpers ) { %>                
+                    <%- include('partials/profileComponent.ejs', { helper }) %>
+                <% } %>
+            </div>
         </div>
       </section>
     </main>
