@@ -279,6 +279,21 @@ app.post("/user/changePass/:id", checkAuth, async (req, res) => {
   req.session.user = await User.findOne({where: {id: req.params.id}});
   res.render("userProfile", { account: req.session.user });
 });
+app.post("/user/delete/:id", checkAuth, async (req, res) => {
+  await User.destroy(
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.destroy(_ => {
+    console.log("account deleted successfully");
+    res.redirect("/");
+  });
+});
 
 // HELPER DASHBOARD
 app.get("/helperDash", checkAuth, (req, res) => {
