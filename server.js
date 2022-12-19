@@ -50,7 +50,6 @@ function checkAuth(req, res, next) {
 
 // HOME
 app.get("/", (req, res) => {
-  console.log(req.session);
   res.render("index");
 });
 
@@ -59,7 +58,6 @@ app.get("/userSignUp", (req, res) => {
   res.render("userSignUp");
 });
 app.post("/userSignUp", async (req, res) => {
-  console.log("body", req.body);
   let hashedPass = await bcrypt.hash(req.body.password, 10);
   let newUser = await User.create({
     fname: req.body.fName,
@@ -81,12 +79,10 @@ app.get("/helperContinue", (req, res) => {
   res.render("helperContinue");
 });
 app.post("/helperContinue", async (req, res) => {
-  console.log("body", req.body);
   let hashedPass = await bcrypt.hash(req.body.password, 10).catch((err) => {
     console.log(err);
     res.redirect("/error");
   });
-  console.log("🚀 ~ file: server.js:47 ~ app.post ~ hashedPass", hashedPass);
   req.session.newHelper = {
     fName: req.body.fName,
     lName: req.body.lName,
@@ -105,12 +101,10 @@ app.post("/helperContinue", async (req, res) => {
   res.redirect("/helperSignUp");
 });
 app.get("/helperSignUp", (req, res) => {
-  console.log("newHelper", req.session.newHelper);
   if (!req.session.newHelper) res.redirect("/error");
   res.render("helperSignUp");
 });
 app.post("/helperSignUp", async (req, res) => {
-  console.log("body", req.body);
   let newHelper = await Helper.create({
     fname: req.session.newHelper.fName,
     lname: req.session.newHelper.lName,
@@ -134,7 +128,6 @@ app.post("/helperSignUp", async (req, res) => {
 
 // LOGIN
 app.get("/login", (req, res) => {
-  console.log("queries at /login", req.query);
   if (
     req.query == undefined ||
     req.query.type == undefined ||
@@ -220,7 +213,6 @@ app.get("/success", checkAuth, (req, res) => {
   } else if (req.query.type == "helper") {
     res.render("success", { account: req.session.helper });
   } else res.redirect("/error");
-  console.log('session: ', req.session);
 });
 
 // LOGOUT ROUTE
@@ -337,16 +329,20 @@ app.get("/profile/:id", checkAuth, async (req, res) => {
       }),
     ]);
   }
-  console.log(helperProfile.reviews);
-  console.log('session',req.session);
-  if ( req.session.user && helperProfile.reviews.includes(req.session.user.id) ){
-    res.render("helperProfile", { account: helperProfile, comments, starred: true });
-  } else res.render("helperProfile", { account: helperProfile, comments, starred: false });
+  if (req.session.user && helperProfile.reviews.includes(req.session.user.id)) {
+    res.render("helperProfile", {
+      account: helperProfile,
+      comments,
+      starred: true,
+    });
+  } else
+    res.render("helperProfile", {
+      account: helperProfile,
+      comments,
+      starred: false,
+    });
 });
 app.post("/profile/:id", checkAuth, async (req, res) => {
-  console.log("review", req.body.review);
-  console.log("helperId", req.params.id);
-  console.log("userId", req.session.user.id);
   let review = await Review.create({
     userId: req.session.user.id,
     helperId: req.params.id,
@@ -393,7 +389,6 @@ app.get("/helper/:id", checkAuth, async (req, res) => {
     : res.redirect("/error");
 });
 app.post("/helper/edit/:id", checkAuth, async (req, res) => {
-  console.log(req.body);
   await Helper.update(
     {
       fname: req.body.fName,
@@ -480,7 +475,6 @@ app.post("/explore/search", checkAuth, async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  console.log("🚀 ~ file: server.js:290 ~ app.post ~ helpers", helpers);
   res.render("explore", { account: req.session.user, helpers });
 });
 
