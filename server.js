@@ -194,7 +194,6 @@ app.post("/login", async (req, res) => {
       console.log(err);
       res.redirect("/error");
     });
-    console.log("🚀 ~ file: server.js:191 ~ app.post ~ helper", helper);
     if (!helper) {
       res.redirect("/login?v=false&type=helper");
       return;
@@ -221,6 +220,7 @@ app.get("/success", checkAuth, (req, res) => {
   } else if (req.query.type == "helper") {
     res.render("success", { account: req.session.helper });
   } else res.redirect("/error");
+  console.log('session: ', req.session);
 });
 
 // LOGOUT ROUTE
@@ -338,7 +338,8 @@ app.get("/profile/:id", checkAuth, async (req, res) => {
     ]);
   }
   console.log(helperProfile.reviews);
-  if (helperProfile.reviews.includes(req.session.user.id)) {
+  console.log('session',req.session);
+  if ( req.session.user && helperProfile.reviews.includes(req.session.user.id) ){
     res.render("helperProfile", { account: helperProfile, comments, starred: true });
   } else res.render("helperProfile", { account: helperProfile, comments, starred: false });
 });

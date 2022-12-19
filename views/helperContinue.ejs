@@ -40,7 +40,6 @@
                     type="text"
                     placeholder="First Name"
                     name="fName"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     autofocus
                     required
@@ -53,7 +52,6 @@
                     type="text"
                     placeholder="Last Name"
                     name="lName"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     required
                   />
@@ -66,7 +64,6 @@
                     placeholder="Email Address"
                     name="email"
                     autocomplete="username"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     required
                   />
@@ -81,7 +78,6 @@
                     name="password"
                     autocomplete="new-password"
                     onkeyup="validatePass('signup')"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     required
                   />
@@ -96,7 +92,6 @@
                     name="confirmPass"
                     autocomplete="new-password"
                     onkeyup="validatePass('signup')"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     required
                   />
@@ -119,10 +114,10 @@
       </section>
     </main>
     <script>
-      document.addEventListener("DOMContentLoaded", _ => {
-        console.log('DOM Loaded');
-        scrollDown();
-      });
+      // document.addEventListener("DOMContentLoaded", _ => {
+      //   console.log('DOM Loaded');
+      //   scrollDown();
+      // });
     </script>
   </body>
 </html>
