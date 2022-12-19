@@ -39,7 +39,7 @@
                     placeholder="First Name"
                     name="fName"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
-                    onfocus="scrollDown()"
+                    autofocus
                     required
                   />
                 </div>
@@ -51,7 +51,6 @@
                     placeholder="Last Name"
                     name="lName"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
-                    onfocus="scrollDown()"
                     required
                   />
                 </div>
@@ -64,7 +63,6 @@
                     name="email"
                     autocomplete="username"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
-                    onfocus="scrollDown()"
                     required
                   />
                 </div>
@@ -79,7 +77,6 @@
                     autocomplete="new-password"
                     onkeyup="validatePass('signup')"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
-                    onfocus="scrollDown()"
                     required
                   />
                 </div>
@@ -93,7 +90,6 @@
                     name="confirmPass"
                     autocomplete="new-password"
                     onkeyup="validatePass('signup')"
-                    onfocus="scrollDown()"
                     class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none"
                     required
                   />
@@ -116,10 +112,10 @@
       </section>
     </main>
     <script>
-      document.addEventListener("DOMContentLoaded", _ => {
-        console.log('DOM Loaded');
-        scrollDown();
-      });
+      // document.addEventListener("DOMContentLoaded", _ => {
+      //   console.log('DOM Loaded');
+      //   scrollDown();
+      // });
     </script>
   </body>
 </html>

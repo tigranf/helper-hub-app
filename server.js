@@ -325,10 +325,14 @@ app.get("/helper/:id", checkAuth, async (req, res) => {
   req.session.helper.id == helper.id ? res.render("helper", { account: helper }) : res.redirect('/error');
 });
 app.post("/helper/edit/:id", checkAuth, async (req, res) => {
+  console.log(req.body);
   await Helper.update(
     {
       fname: req.body.fName,
       lname: req.body.lName,
+      title: req.body.title,
+      experience: req.body.experience,
+      bio: req.body.bio,
     },
     {
       where: { id: req.params.id },

@@ -123,32 +123,27 @@
                   <div class="px-8 pt-4">
                     <div class="w-full mb-4">
                       <div class="flex items-center">
-                        <input type="text" placeholder="First Name" name="fName" onfocus="scrollDown()" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" required />
+                        <input value="<%= account.fname %>" type="text" placeholder="First Name" name="fName" onfocus="scrollDown()" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" required />
                       </div>
                     </div>
                     <div class="w-full mb-4">
                       <div class="flex items-center">
-                        <input type="text" placeholder="Last Name" name="lName" onfocus="scrollDown()" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" required />
+                        <input value="<%= account.lname %>" type="text" placeholder="Last Name" name="lName" onfocus="scrollDown()" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" required />
                       </div>
                     </div>
                     <div class="w-full mb-4">
                       <div class="flex items-center">
-                        <input type="text" placeholder="Title" name="title" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()" required />
+                        <input value="<%= account.title %>" type="text" placeholder="Job Title" name="title" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()" required />
                       </div>
                     </div>
                     <div class="w-full mb-4">
                       <div class="flex items-center">
-                        <input type="text" placeholder="Job Title" name="title" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()" required />
+                        <input value="<%= account.experience %>" type="number" placeholder="Months of Service Experience" name="experience" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()" required />
                       </div>
                     </div>
                     <div class="w-full mb-4">
                       <div class="flex items-center">
-                        <input type="number" placeholder="Months of Service Experience" name="experience" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()" required />
-                      </div>
-                    </div>
-                    <div class="w-full mb-4">
-                      <div class="flex items-center">
-                        <textarea placeholder="Short Bio" name="bio" rows="5" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()"></textarea>
+                        <textarea placeholder="Short Bio" name="bio" rows="5" class="w-full rounded-[1px] px-3 py-2 text-gray-700 border-2 border-black shadow-neo-sm focus:shadow-neo-md focus:outline-none" onfocus="scrollDown()"><%= account.bio %></textarea>
                       </div>
                     </div>
                     <div class="bg-transparent px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
