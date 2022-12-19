@@ -259,7 +259,7 @@ app.post("/user/edit/:id", checkAuth, async (req, res) => {
     res.redirect("/error");
     return;
   });
-  req.session.user = await User.findOne({where: {id: req.params.id}});
+  req.session.user = await User.findOne({ where: { id: req.params.id } });
   res.render("userProfile", { account: req.session.user });
 });
 app.post("/user/changePass/:id", checkAuth, async (req, res) => {
@@ -276,20 +276,18 @@ app.post("/user/changePass/:id", checkAuth, async (req, res) => {
     res.redirect("/error");
     return;
   });
-  req.session.user = await User.findOne({where: {id: req.params.id}});
+  req.session.user = await User.findOne({ where: { id: req.params.id } });
   res.render("userProfile", { account: req.session.user });
 });
 app.post("/user/delete/:id", checkAuth, async (req, res) => {
-  await User.destroy(
-    {
-      where: { id: req.params.id },
-    }
-  ).catch((err) => {
+  await User.destroy({
+    where: { id: req.params.id },
+  }).catch((err) => {
     console.log(err);
     res.redirect("/error");
     return;
   });
-  req.session.destroy(_ => {
+  req.session.destroy((_) => {
     console.log("account deleted successfully");
     res.redirect("/");
   });
@@ -302,6 +300,9 @@ app.get("/helperDash", checkAuth, (req, res) => {
 
 // HELPER PROFILE VIEW ROUTE
 app.get("/profile/:id", checkAuth, async (req, res) => {
+  // if (helperProfile.reviews) {
+
+  // }
   let helperProfile = await Helper.findOne({
     where: {
       id: req.params.id,
@@ -322,18 +323,29 @@ app.get("/profile/:id", checkAuth, async (req, res) => {
   for (let review of reviews) {
     let commenter = await User.findOne({
       where: {
-        id: review.userId
-      }
+        id: review.userId,
+      },
     });
-    comments.push([ `${commenter.fname} ${commenter.lname}`, review.review, review.createdAt.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) ]);
+    comments.push([
+      `${commenter.fname} ${commenter.lname}`,
+      review.review,
+      review.createdAt.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+    ]);
   }
-  console.log("🚀 ~ file: server.js:321 ~ app.get ~ reviews", reviews)
-  res.render("helperProfile", { account: helperProfile, comments });
+  console.log(helperProfile.reviews);
+  if (helperProfile.reviews.includes(req.session.user.id)) {
+    res.render("helperProfile", { account: helperProfile, comments, starred: true });
+  } else res.render("helperProfile", { account: helperProfile, comments, starred: false });
 });
 app.post("/profile/:id", checkAuth, async (req, res) => {
-  console.log('review',req.body.review);
-  console.log('helperId',req.params.id);
-  console.log('userId',req.session.user.id);
+  console.log("review", req.body.review);
+  console.log("helperId", req.params.id);
+  console.log("userId", req.session.user.id);
   let review = await Review.create({
     userId: req.session.user.id,
     helperId: req.params.id,
@@ -347,6 +359,23 @@ app.post("/profile/:id", checkAuth, async (req, res) => {
   });
   res.redirect("/profile/" + req.params.id);
 });
+app.post("/profile/star/:id", checkAuth, async (req, res) => {
+  await Helper.update(
+    {
+      reviews: Sequelize.fn(
+        "array_append",
+        Sequelize.col("reviews"),
+        req.session.user.id
+      ),
+    },
+    {
+      where: { id: req.params.id },
+    }
+  );
+  let helper = await Helper.findOne({ where: { id: req.params.id } });
+  helper = await helper.increment("rating");
+  res.redirect("/profile/" + req.params.id);
+});
 
 // HELPER ACCOUNT VIEW ROUTE
 app.get("/helper/:id", checkAuth, async (req, res) => {
@@ -358,7 +387,9 @@ app.get("/helper/:id", checkAuth, async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  req.session.helper.id == helper.id ? res.render("helper", { account: helper }) : res.redirect('/error');
+  req.session.helper.id == helper.id
+    ? res.render("helper", { account: helper })
+    : res.redirect("/error");
 });
 app.post("/helper/edit/:id", checkAuth, async (req, res) => {
   console.log(req.body);
@@ -378,7 +409,7 @@ app.post("/helper/edit/:id", checkAuth, async (req, res) => {
     res.redirect("/error");
     return;
   });
-  req.session.helper = await Helper.findOne({where: {id: req.params.id}});
+  req.session.helper = await Helper.findOne({ where: { id: req.params.id } });
   res.render("helper", { account: req.session.helper });
 });
 app.post("/helper/changePass/:id", checkAuth, async (req, res) => {
@@ -395,20 +426,18 @@ app.post("/helper/changePass/:id", checkAuth, async (req, res) => {
     res.redirect("/error");
     return;
   });
-  req.session.helper = await Helper.findOne({where: {id: req.params.id}});
+  req.session.helper = await Helper.findOne({ where: { id: req.params.id } });
   res.render("helper", { account: req.session.helper });
 });
 app.post("/helper/delete/:id", checkAuth, async (req, res) => {
-  await Helper.destroy(
-    {
-      where: { id: req.params.id },
-    }
-  ).catch((err) => {
+  await Helper.destroy({
+    where: { id: req.params.id },
+  }).catch((err) => {
     console.log(err);
     res.redirect("/error");
     return;
   });
-  req.session.destroy(_ => {
+  req.session.destroy((_) => {
     console.log("account deleted successfully");
     res.redirect("/");
   });
