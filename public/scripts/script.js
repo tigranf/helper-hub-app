@@ -10,8 +10,8 @@ function openModal(str) {
   modal.classList.add("scale-100");
   modal.classList.remove("-z-50");
   modal.classList.add("z-50");
-  modal.classList.add("w-screen");
-  modal.classList.add("h-screen");
+  // modal.classList.add("w-screen");
+  // modal.classList.add("h-screen");
   overlay.classList.remove("opacity-0");
   overlay.classList.add("opacity-100");
   panel.classList.remove("opacity-0");

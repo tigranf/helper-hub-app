@@ -313,6 +313,67 @@ app.get("/profile/:id", checkAuth, async (req, res) => {
   res.render("helperProfile", { account: helperProfile });
 });
 
+app.get("/helper/:id", checkAuth, async (req, res) => {
+  let helper = await Helper.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+  });
+  req.session.helper.id == helper.id ? res.render("helper", { account: helper }) : res.redirect('/error');
+});
+app.post("/helper/edit/:id", checkAuth, async (req, res) => {
+  await Helper.update(
+    {
+      fname: req.body.fName,
+      lname: req.body.lName,
+    },
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.helper = await Helper.findOne({where: {id: req.params.id}});
+  res.render("helper", { account: req.session.helper });
+});
+app.post("/helper/changePass/:id", checkAuth, async (req, res) => {
+  let hashedPass = await bcrypt.hash(req.body.password, 10);
+  await Helper.update(
+    {
+      password: hashedPass,
+    },
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.helper = await Helper.findOne({where: {id: req.params.id}});
+  res.render("helper", { account: req.session.helper });
+});
+app.post("/helper/delete/:id", checkAuth, async (req, res) => {
+  await Helper.destroy(
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.destroy(_ => {
+    console.log("account deleted successfully");
+    res.redirect("/");
+  });
+});
+
 // EXPLORE ROUTE
 app.get("/explore/", checkAuth, async (req, res) => {
   let helpers = await Helper.findAll({});

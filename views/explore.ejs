@@ -19,7 +19,26 @@
   <body
     class="font-oswald bg-[url('/images/blob-scatter-3.svg')]"
   >
-    <%- include('partials/navDash.ejs') %>
+    <!-- Navigation -->
+    <nav
+      class="flex justify-between h-[4.25rem] w-full pb-4 z-[70] select-none container"
+    >
+      <h1
+        class="bg-white px-2 -translate-y-2 -translate-x-2 rounded-[2px] underline font-black text-black text-2xl border-[5px] border-black shadow-neo-lg cursor-pointer active:shadow hover:shadow-neo-sm transition-all"
+        onclick="location.href = '/';"
+      >
+        HelperHub
+      </h1>
+      <ul class="flex justify-center items-center gap-3 pr-6">
+        <li
+          id="logout-btn"
+          onclick="logout()"
+          class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer"
+        >
+          <p class="font-bold text-md">Logout</p>
+        </li>
+      </ul>
+    </nav>
     <main>
       <form action="/explore/search" method="post">
         <div class="w-72 mx-auto">
