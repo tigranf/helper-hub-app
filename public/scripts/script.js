@@ -1,7 +1,7 @@
 function openModal(str) {
-  console.log('opening modal:', str);
+  console.log("opening modal:", str);
   if (document.querySelector("#star"))
-  document.querySelector("#star").classList.add("hidden");
+    document.querySelector("#star").classList.add("hidden");
   const modal = document.querySelector("#modal-" + str);
   const overlay = document.querySelector("#overlay-" + str);
   const panel = document.querySelector("#modal-panel-" + str);
@@ -21,11 +21,10 @@ function openModal(str) {
   panel.classList.remove("sm:scale-95");
   panel.classList.add("sm:scale-100");
   panel.classList.remove("sm:translate-y-0");
-
 }
 
 function closeModal(str) {
-  console.log('closing modal:', str);
+  console.log("closing modal:", str);
   if (document.querySelector("#star"))
     document.querySelector("#star").classList.remove("hidden");
   const modal = document.querySelector("#modal-" + str);
@@ -57,14 +56,14 @@ function validatePass(str) {
     alertDiv.classList.add("invert");
     submitBtn.classList.add("blur-[1.5px]");
     submitBtn.classList.add("grayscale");
-    submitBtn.classList.add('brightness-125')
+    submitBtn.classList.add("brightness-125");
     submitBtn.disabled = true;
   } else if (pass.length > 0 && confirmPass.length > 0 && pass == confirmPass) {
     alertDiv.innerHTML = "🌈 Password Matched";
     alertDiv.classList.remove("invert");
     submitBtn.classList.remove("blur-[1.5px]");
     submitBtn.classList.remove("grayscale");
-    submitBtn.classList.remove('brightness-125')
+    submitBtn.classList.remove("brightness-125");
     submitBtn.disabled = false;
   }
   if (pass.length == 0 || confirmPass.length == 0) {
@@ -73,7 +72,7 @@ function validatePass(str) {
 }
 
 function scrollDown() {
-  console.log('scrolled down');
+  console.log("scrolled down");
   setTimeout(function () {
     window.scrollTo({
       left: 0,
@@ -84,14 +83,14 @@ function scrollDown() {
 }
 
 function loginSuccess(type) {
-  console.log('successful login');
-  setTimeout(_ => {
+  console.log("successful login");
+  setTimeout((_) => {
     window.location.href = `/${type}Dash`;
   }, 1333);
 }
 
 // Send a POST request when the logout button is clicked
 async function logout() {
-  await fetch('/logout', { method: 'POST' });
-  window.location.href = '/';
+  await fetch("/logout", { method: "POST" });
+  window.location.href = "/";
 }
