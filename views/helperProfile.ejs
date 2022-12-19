@@ -1,196 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/output.css" rel="stylesheet" />
-    <script src="/scripts/script.js" defer></script>
-    <title>Helper Hub</title>
-  </head>
 
-  <body class="bg-blue-400 font-oswald bg-[url('/images/blob-scatter-1.svg')]">
-    <!-- Navigation -->
-    <nav
-      class="flex justify-between h-[4.25rem] w-full pb-4 z-[70] select-none container"
-    >
-      <h1
-        class="bg-white px-2 -translate-y-2 -translate-x-2 rounded-[2px] underline font-black text-black text-2xl border-[5px] border-black shadow-neo-lg cursor-pointer active:shadow hover:shadow-neo-sm transition-all"
-        onclick="location.href = '/';"
-      >
-        HelperHub
-      </h1>
-      <ul class="flex justify-center items-center gap-3 pr-6">
-        <li
-          onclick="window.location.href = '/explore'"
-          class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer"
-        >
-          <p class="font-bold text-md">Explore</p>
-        </li>
-        <li
-          id="logout-btn"
-          onclick="logout()"
-          class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer"
-        >
-          <p class="font-bold text-md">Logout</p>
-        </li>
-      </ul>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/output.css" rel="stylesheet" />
+  <script src="/scripts/script.js" defer></script>
+  <title>Helper Hub</title>
+</head>
 
-    <main class="flex flex-col justify-center items-center container mx-auto">
-      <!-- Heading -->
-      <div
-        class="z-10 bg-gradient-to-br from-green-400 to-cyan-500 mx-2 border-2 border-black rounded-sm shadow-neo-sm flex flex-col justify-center items-center max-w-lg w-2/3"
-      >
-        <div class="container">
-          <h1 class="text-4xl p-2 text-center">
-            <%= account.fname %> <%= account.lname %>
-          </h1>
-        </div>
+<body class="bg-blue-400 font-oswald bg-[url('/images/blob-scatter-1.svg')]">
+  <!-- Navigation -->
+  <nav class="flex justify-between h-[4.25rem] w-full pb-4 z-[70] select-none container">
+    <h1 class="bg-white px-2 -translate-y-2 -translate-x-2 rounded-[2px] underline font-black text-black text-2xl border-[5px] border-black shadow-neo-lg cursor-pointer active:shadow hover:shadow-neo-sm transition-all" onclick="location.href = '/';">
+      HelperHub
+    </h1>
+    <ul class="flex justify-center items-center gap-3 pr-6">
+      <li onclick="window.location.href = '/explore'" class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
+        <p class="font-bold text-md">Explore</p>
+      </li>
+      <li id="logout-btn" onclick="logout()" class="-rotate-1 hover:-rotate-6 active:rotate-0 cursor-pointer">
+        <p class="font-bold text-md">Logout</p>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="flex flex-col justify-center items-center container mx-auto">
+    <!-- Heading -->
+    <div class="z-10 bg-gradient-to-br from-green-400 to-cyan-500 mx-2 border-2 border-black rounded-sm shadow-neo-sm flex flex-col justify-center items-center max-w-lg w-2/3">
+      <div class="container">
+        <h1 class="text-4xl p-2 text-center">
+          <%= account.fname %> <%= account.lname %>
+        </h1>
       </div>
+    </div>
 
-      <!-- Profile -->
-      <div
-        class="border-4 border-white shadow-neo-sm w-11/12 sm:w-5/6 min-h-screen sm:min-h-min bg-[url('/images/square-scatter-1.svg')] bg-cover -translate-y-8 text-black"
-      >
-        <div
-          class="container flex flex-col items-center gap-4 translate-y-12 text-center"
-        >
-          <div
-            class="h-24 w-24 sm:h-40 sm:w-40 rounded-full relative flex items-end justify-end min-w-max bg-gray-500 row-start-1 row-end-3 text-indigo-650"
-          >
-            <img
-              class="z-20 h-24 w-24 sm:h-40 sm:w-40 p-1 rounded-full relative border-[4px] bg-slate-400 border-white drop-shadow-neo-md hover:drop-shadow-none hover:scale-110 transition-all"
-              src="<%= account.avatar %>"
-              alt="avatar"
-            />
+    <!-- Profile -->
+    <div class="border-4 border-white shadow-neo-sm w-11/12 sm:w-5/6 min-h-screen sm:min-h-min bg-[url('/images/square-scatter-1.svg')] bg-cover -translate-y-8 text-black">
+      <div class="container flex flex-col items-center gap-4 translate-y-12 text-center">
+        <div class="h-24 w-24 sm:h-40 sm:w-40 rounded-full relative flex items-end justify-end min-w-max bg-gray-500 row-start-1 row-end-3 text-indigo-650">
+          <img class="z-20 h-24 w-24 sm:h-40 sm:w-40 p-1 rounded-full relative border-[4px] bg-slate-400 border-white drop-shadow-neo-md hover:drop-shadow-none hover:scale-110 transition-all" src="<%= account.avatar %>" alt="avatar" />
+        </div>
+
+        <div class="grid justify-items-center grid-cols-1 md:grid-cols-2 gap-5 sm:w-3/4 min-h-[600px] mb-10">
+          <div class="grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30">
+            <p class="text-left font-montserrat font-bold">
+              title:<br />
+              <span class="text-lg font-oswald font-medium text-slate-700"><%= account.title %></span>
+            </p>
           </div>
 
-          <div class="grid justify-items-center grid-cols-1 md:grid-cols-2 gap-5 sm:w-3/4 min-h-[600px] mb-10">
-            <div
-              class="grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30"
-            >
-              <p class="text-left font-montserrat font-bold">
-                title:<br />
-                <span class="text-lg font-oswald font-medium text-slate-700"
-                  ><%= account.title %></span
-                >
-              </p>
-            </div>
-
-            <div
-              class="grid place-items-center max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30"
-            >
-              <p class="text-left font-montserrat font-bold">
-                experience:<br />
-                <span class="text-lg font-oswald font-medium text-slate-700"
-                  ><%= account.experience %> months</span
-                >
-              </p>
-            </div>
-
-            <div
-              class="grid place-items-center max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30"
-            >
-              <p class="text-left font-montserrat font-bold">
-                e-mail:<br />
-                <span class="text-lg font-oswald font-medium text-slate-700"
-                  ><%= account.email %></span
-                >
-              </p>
-            </div>
-
-            <div
-              class="row-span-2 grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] -hue-rotate-90 bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30"
-            >
-              <p class="text-left font-montserrat font-bold">
-                bio:<br />
-                <span class="text-lg font-oswald font-medium text-slate-700"
-                  ><%= account.bio %></span
-                >
-              </p>
-            </div>
-
-            <div
-              class="grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30"
-            >
-              <div
-                class="py-4 flex justify-center items-center w-full divide-x divide-gray-400 divide-solid"
-              >
-                <span
-                  class="text-center px-2 flex items-center justify-center gap-1"
-                  ><span class="font-bold text-black"
-                    ><%= account.rating %></span
-                  ><span class="text-black">
-                    <svg class="h-6 w-6" viewBox="0 0 20 20">
-                      <path
-                        class="fill-none stroke-black stroke-[1.5]"
-                        d="M16.85,7.275l-3.967-0.577l-1.773-3.593c-0.208-0.423-0.639-0.69-1.11-0.69s-0.902,0.267-1.11,0.69L7.116,6.699L3.148,7.275c-0.466,0.068-0.854,0.394-1,0.842c-0.145,0.448-0.023,0.941,0.314,1.27l2.871,2.799l-0.677,3.951c-0.08,0.464,0.112,0.934,0.493,1.211c0.217,0.156,0.472,0.236,0.728,0.236c0.197,0,0.396-0.048,0.577-0.143l3.547-1.864l3.548,1.864c0.18,0.095,0.381,0.143,0.576,0.143c0.256,0,0.512-0.08,0.729-0.236c0.381-0.277,0.572-0.747,0.492-1.211l-0.678-3.951l2.871-2.799c0.338-0.329,0.459-0.821,0.314-1.27C17.705,7.669,17.316,7.343,16.85,7.275z M13.336,11.754l0.787,4.591l-4.124-2.167l-4.124,2.167l0.788-4.591L3.326,8.5l4.612-0.67l2.062-4.177l2.062,4.177l4.613,0.67L13.336,11.754z"
-                      ></path>
-                    </svg> </span
-                ></span>
-              </div>
-            </div>
-
-            
+          <div class="grid place-items-center max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30">
+            <p class="text-left font-montserrat font-bold">
+              experience:<br />
+              <span class="text-lg font-oswald font-medium text-slate-700"><%= account.experience %> months</span>
+            </p>
           </div>
 
-          <div
-            class="my-24 max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 mt-12 w-11/12 -translate-x-1 scale-125 hover:shadow-neo-sm hover:rotate-0 focus:shadow-neo-sm focus:rotate-0 transition-all -rotate-0 hover:scale-125 hover:z-30 focus:scale-125 focus:z-30"
-          >
-            <form
-              action="addReview"
-              class="focus:shadow-neo-sm focus:rotate-0 focus:scale-125 focus:z-30"
-            >
-              <div class="-translate-x-1">
-                <span class="uppercase text-sm text-gray-900 font-bold">
-                  Leave a Comment
-                </span>
-                <textarea
-                  class="w-full h-32 bg-white text-black shadow-neo-sm mt-2 p-3 rounded-[2px] focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-black"
-                  placeholder="Enter your Comment"
-                  required
-                ></textarea>
+          <div class="grid place-items-center max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30">
+            <p class="text-left font-montserrat font-bold">
+              e-mail:<br />
+              <span class="text-lg font-oswald font-medium text-slate-700"><%= account.email %></span>
+            </p>
+          </div>
+
+          <div class="row-span-2 grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] -hue-rotate-90 bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30">
+            <p class="text-left font-montserrat font-bold">
+              bio:<br />
+              <span class="text-lg font-oswald font-medium text-slate-700"><%= account.bio %></span>
+            </p>
+          </div>
+
+          <div class="grid place-items-center max-w-lg bg-[url('/images/low-poly-1.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 w-11/12 -translate-x-1 hover:shadow-neo-sm hover:rotate-0 transition-all -rotate-1 hover:scale-125 hover:z-30">
+            <div class="py-4 flex justify-center items-center w-full divide-x divide-gray-400 divide-solid">
+              <span class="text-center px-2 flex items-center justify-center gap-1"><span class="font-bold text-black"><%= account.rating %></span><span class="text-black">
+                  <svg class="h-6 w-6" viewBox="0 0 20 20">
+                    <path class="fill-none stroke-black stroke-[1.5]" d="M16.85,7.275l-3.967-0.577l-1.773-3.593c-0.208-0.423-0.639-0.69-1.11-0.69s-0.902,0.267-1.11,0.69L7.116,6.699L3.148,7.275c-0.466,0.068-0.854,0.394-1,0.842c-0.145,0.448-0.023,0.941,0.314,1.27l2.871,2.799l-0.677,3.951c-0.08,0.464,0.112,0.934,0.493,1.211c0.217,0.156,0.472,0.236,0.728,0.236c0.197,0,0.396-0.048,0.577-0.143l3.547-1.864l3.548,1.864c0.18,0.095,0.381,0.143,0.576,0.143c0.256,0,0.512-0.08,0.729-0.236c0.381-0.277,0.572-0.747,0.492-1.211l-0.678-3.951l2.871-2.799c0.338-0.329,0.459-0.821,0.314-1.27C17.705,7.669,17.316,7.343,16.85,7.275z M13.336,11.754l0.787,4.591l-4.124-2.167l-4.124,2.167l0.788-4.591L3.326,8.5l4.612-0.67l2.062-4.177l2.062,4.177l4.613,0.67L13.336,11.754z"></path>
+                  </svg> </span></span>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="my-24 max-w-lg bg-[url('/images/low-poly-2.svg')] bg-cover border-2 border-black shadow-neo-lg bg-white rounded-[1px] p-4 mt-12 w-11/12 -translate-x-1 scale-125 hover:shadow-neo-sm hover:rotate-0 focus:shadow-neo-sm focus:rotate-0 transition-all -rotate-0 hover:scale-125 hover:z-30 focus:scale-125 focus:z-30">
+          <form action="/profile/<%= account.id %>" method="post" class="focus:shadow-neo-sm focus:rotate-0 focus:scale-125 focus:z-30">
+            <div class="-translate-x-1">
+              <span class="uppercase text-sm text-gray-900 font-bold">
+                Leave a Comment
+              </span>
+              <textarea name="review" class="w-full h-32 bg-white text-black shadow-neo-sm mt-2 p-3 rounded-[2px] focus:outline-none focus:shadow-outline focus:ring-2 focus:ring-black" placeholder="Enter your Comment" required></textarea>
+            </div>
+            <div class="mt-4">
+              <div class="py-2 flex space-x-2">
+                <button class="flex justify-center max-h-max whitespace-nowrap focus:outline-none rounded-sm max-w-max border-black transition-all shadow-neo-sm active:shadow-none border-2 bg-yellow-100 text-indigo-900 hover:border-indigo-800 px-4 py-1 items-center hover:shadow-lg">
+                  <span class="mr-2"></span>SEND COMMENT<span class="ml-2"></span></button><button disabled class="flex justify-center max-h-max whitespace-nowrap focus:outline-none rounded-sm max-w-max border-black border-2 transition-all shadow-neo-sm active:shadow-none text-black bg-green-500 hover:border-green-900 hover:bg-green-600 px-4 py-1 items-center hover:shadow-lg">
+                  <span class="mr-2"><svg height="20" width="20" viewBox="0 0 20 20" class="fill-current text-red-100">
+                      <path class="stroke-green-900 fill-current stroke-1" d="M5.229,6.531H4.362c-0.239,0-0.434,0.193-0.434,0.434c0,0.239,0.194,0.434,0.434,0.434h0.868c0.24,0,0.434-0.194,0.434-0.434C5.663,6.724,5.469,6.531,5.229,6.531 M10,6.531c-1.916,0-3.47,1.554-3.47,3.47c0,1.916,1.554,3.47,3.47,3.47c1.916,0,3.47-1.555,3.47-3.47C13.47,8.084,11.916,6.531,10,6.531 M11.4,11.447c-0.071,0.164-0.169,0.299-0.294,0.406c-0.124,0.109-0.27,0.191-0.437,0.248c-0.167,0.057-0.298,0.09-0.492,0.098v0.402h-0.35v-0.402c-0.21-0.004-0.352-0.039-0.527-0.1c-0.175-0.064-0.324-0.154-0.449-0.27c-0.124-0.115-0.221-0.258-0.288-0.428c-0.068-0.17-0.1-0.363-0.096-0.583h0.664c-0.004,0.259,0.052,0.464,0.169,0.613c0.116,0.15,0.259,0.229,0.527,0.236v-1.427c-0.159-0.043-0.268-0.095-0.425-0.156c-0.157-0.061-0.299-0.139-0.425-0.235C8.852,9.752,8.75,9.631,8.672,9.486C8.594,9.34,8.556,9.16,8.556,8.944c0-0.189,0.036-0.355,0.108-0.498c0.072-0.144,0.169-0.264,0.292-0.36c0.122-0.097,0.263-0.17,0.422-0.221c0.159-0.052,0.277-0.077,0.451-0.077V7.401h0.35v0.387c0.174,0,0.29,0.023,0.445,0.071c0.155,0.047,0.29,0.118,0.404,0.212c0.115,0.095,0.206,0.215,0.274,0.359c0.067,0.146,0.103,0.315,0.103,0.508H10.74c-0.007-0.201-0.06-0.354-0.154-0.46c-0.096-0.106-0.199-0.159-0.408-0.159v1.244c0.174,0.047,0.296,0.102,0.462,0.165c0.167,0.063,0.314,0.144,0.443,0.241c0.128,0.099,0.23,0.221,0.309,0.366c0.077,0.146,0.116,0.324,0.116,0.536C11.509,11.092,11.473,11.283,11.4,11.447 M18.675,4.795H1.326c-0.479,0-0.868,0.389-0.868,0.868v8.674c0,0.479,0.389,0.867,0.868,0.867h17.349c0.479,0,0.867-0.389,0.867-0.867V5.664C19.542,5.184,19.153,4.795,18.675,4.795M1.76,5.664c0.24,0,0.434,0.193,0.434,0.434C2.193,6.336,2,6.531,1.76,6.531S1.326,6.336,1.326,6.097C1.326,5.857,1.52,5.664,1.76,5.664 M1.76,14.338c-0.24,0-0.434-0.195-0.434-0.434c0-0.24,0.194-0.434,0.434-0.434s0.434,0.193,0.434,0.434C2.193,14.143,2,14.338,1.76,14.338 M18.241,14.338c-0.24,0-0.435-0.195-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,14.143,18.48,14.338,18.241,14.338 M18.675,12.682c-0.137-0.049-0.281-0.08-0.434-0.08c-0.719,0-1.302,0.584-1.302,1.303c0,0.152,0.031,0.297,0.08,0.434H2.981c0.048-0.137,0.08-0.281,0.08-0.434c0-0.719-0.583-1.303-1.301-1.303c-0.153,0-0.297,0.031-0.434,0.08V7.318c0.136,0.049,0.28,0.08,0.434,0.08c0.718,0,1.301-0.583,1.301-1.301c0-0.153-0.032-0.298-0.08-0.434H17.02c-0.049,0.136-0.08,0.28-0.08,0.434c0,0.718,0.583,1.301,1.302,1.301c0.152,0,0.297-0.031,0.434-0.08V12.682z M18.241,6.531c-0.24,0-0.435-0.194-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,6.336,18.48,6.531,18.241,6.531 M9.22,8.896c0,0.095,0.019,0.175,0.058,0.242c0.039,0.066,0.088,0.124,0.148,0.171c0.061,0.047,0.13,0.086,0.21,0.115c0.079,0.028,0.11,0.055,0.192,0.073V8.319c-0.21,0-0.322,0.044-0.437,0.132C9.277,8.54,9.22,8.688,9.22,8.896 M15.639,12.602h-0.868c-0.239,0-0.434,0.195-0.434,0.434c0,0.24,0.194,0.436,0.434,0.436h0.868c0.24,0,0.434-0.195,0.434-0.436C16.072,12.797,15.879,12.602,15.639,12.602 M10.621,10.5c-0.068-0.052-0.145-0.093-0.23-0.124c-0.086-0.031-0.123-0.06-0.212-0.082v1.374c0.209-0.016,0.332-0.076,0.465-0.186c0.134-0.107,0.201-0.281,0.201-0.516c0-0.11-0.02-0.202-0.062-0.277C10.743,10.615,10.688,10.551,10.621,10.5"></path>
+                    </svg></span>TIP <span class="ml-2"></span>
+                </button>
               </div>
-              <div class="mt-4">
-                <div class="py-2 flex space-x-2">
-                  <button
-                    class="flex justify-center max-h-max whitespace-nowrap focus:outline-none rounded-sm max-w-max border-black transition-all shadow-neo-sm active:shadow-none border-2 bg-yellow-100 text-indigo-900 hover:border-indigo-800 px-4 py-1 items-center hover:shadow-lg"
-                  >
-                    <span class="mr-2"></span>SEND COMMENT<span
-                      class="ml-2"
-                    ></span></button
-                  ><button
-                    disabled
-                    class="flex justify-center max-h-max whitespace-nowrap focus:outline-none rounded-sm max-w-max border-black border-2 transition-all shadow-neo-sm active:shadow-none text-black bg-green-500 hover:border-green-900 hover:bg-green-600 px-4 py-1 items-center hover:shadow-lg"
-                  >
-                    <span class="mr-2"
-                      ><svg
-                        height="20"
-                        width="20"
-                        viewBox="0 0 20 20"
-                        class="fill-current text-red-100"
-                      >
-                        <path
-                          class="stroke-green-900 fill-current stroke-1"
-                          d="M5.229,6.531H4.362c-0.239,0-0.434,0.193-0.434,0.434c0,0.239,0.194,0.434,0.434,0.434h0.868c0.24,0,0.434-0.194,0.434-0.434C5.663,6.724,5.469,6.531,5.229,6.531 M10,6.531c-1.916,0-3.47,1.554-3.47,3.47c0,1.916,1.554,3.47,3.47,3.47c1.916,0,3.47-1.555,3.47-3.47C13.47,8.084,11.916,6.531,10,6.531 M11.4,11.447c-0.071,0.164-0.169,0.299-0.294,0.406c-0.124,0.109-0.27,0.191-0.437,0.248c-0.167,0.057-0.298,0.09-0.492,0.098v0.402h-0.35v-0.402c-0.21-0.004-0.352-0.039-0.527-0.1c-0.175-0.064-0.324-0.154-0.449-0.27c-0.124-0.115-0.221-0.258-0.288-0.428c-0.068-0.17-0.1-0.363-0.096-0.583h0.664c-0.004,0.259,0.052,0.464,0.169,0.613c0.116,0.15,0.259,0.229,0.527,0.236v-1.427c-0.159-0.043-0.268-0.095-0.425-0.156c-0.157-0.061-0.299-0.139-0.425-0.235C8.852,9.752,8.75,9.631,8.672,9.486C8.594,9.34,8.556,9.16,8.556,8.944c0-0.189,0.036-0.355,0.108-0.498c0.072-0.144,0.169-0.264,0.292-0.36c0.122-0.097,0.263-0.17,0.422-0.221c0.159-0.052,0.277-0.077,0.451-0.077V7.401h0.35v0.387c0.174,0,0.29,0.023,0.445,0.071c0.155,0.047,0.29,0.118,0.404,0.212c0.115,0.095,0.206,0.215,0.274,0.359c0.067,0.146,0.103,0.315,0.103,0.508H10.74c-0.007-0.201-0.06-0.354-0.154-0.46c-0.096-0.106-0.199-0.159-0.408-0.159v1.244c0.174,0.047,0.296,0.102,0.462,0.165c0.167,0.063,0.314,0.144,0.443,0.241c0.128,0.099,0.23,0.221,0.309,0.366c0.077,0.146,0.116,0.324,0.116,0.536C11.509,11.092,11.473,11.283,11.4,11.447 M18.675,4.795H1.326c-0.479,0-0.868,0.389-0.868,0.868v8.674c0,0.479,0.389,0.867,0.868,0.867h17.349c0.479,0,0.867-0.389,0.867-0.867V5.664C19.542,5.184,19.153,4.795,18.675,4.795M1.76,5.664c0.24,0,0.434,0.193,0.434,0.434C2.193,6.336,2,6.531,1.76,6.531S1.326,6.336,1.326,6.097C1.326,5.857,1.52,5.664,1.76,5.664 M1.76,14.338c-0.24,0-0.434-0.195-0.434-0.434c0-0.24,0.194-0.434,0.434-0.434s0.434,0.193,0.434,0.434C2.193,14.143,2,14.338,1.76,14.338 M18.241,14.338c-0.24,0-0.435-0.195-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,14.143,18.48,14.338,18.241,14.338 M18.675,12.682c-0.137-0.049-0.281-0.08-0.434-0.08c-0.719,0-1.302,0.584-1.302,1.303c0,0.152,0.031,0.297,0.08,0.434H2.981c0.048-0.137,0.08-0.281,0.08-0.434c0-0.719-0.583-1.303-1.301-1.303c-0.153,0-0.297,0.031-0.434,0.08V7.318c0.136,0.049,0.28,0.08,0.434,0.08c0.718,0,1.301-0.583,1.301-1.301c0-0.153-0.032-0.298-0.08-0.434H17.02c-0.049,0.136-0.08,0.28-0.08,0.434c0,0.718,0.583,1.301,1.302,1.301c0.152,0,0.297-0.031,0.434-0.08V12.682z M18.241,6.531c-0.24,0-0.435-0.194-0.435-0.434c0-0.24,0.194-0.434,0.435-0.434c0.239,0,0.434,0.193,0.434,0.434C18.675,6.336,18.48,6.531,18.241,6.531 M9.22,8.896c0,0.095,0.019,0.175,0.058,0.242c0.039,0.066,0.088,0.124,0.148,0.171c0.061,0.047,0.13,0.086,0.21,0.115c0.079,0.028,0.11,0.055,0.192,0.073V8.319c-0.21,0-0.322,0.044-0.437,0.132C9.277,8.54,9.22,8.688,9.22,8.896 M15.639,12.602h-0.868c-0.239,0-0.434,0.195-0.434,0.434c0,0.24,0.194,0.436,0.434,0.436h0.868c0.24,0,0.434-0.195,0.434-0.436C16.072,12.797,15.879,12.602,15.639,12.602 M10.621,10.5c-0.068-0.052-0.145-0.093-0.23-0.124c-0.086-0.031-0.123-0.06-0.212-0.082v1.374c0.209-0.016,0.332-0.076,0.465-0.186c0.134-0.107,0.201-0.281,0.201-0.516c0-0.11-0.02-0.202-0.062-0.277C10.743,10.615,10.688,10.551,10.621,10.5"
-                        ></path></svg></span
-                    >TIP <span class="ml-2"></span>
-                  </button>
+            </div>
+          </form>
+          <div class="">
+            <p class="text-left font-montserrat font-bold mt-8">
+              comments:<br />
+            </p>
+            <div class="flex flex-col gap-4 text-lg font-oswald font-medium text-slate-700 py-4">
+              <% for( let comment of comments) { %>
+                <div class="flex flex-col gap-4 p-2 border-2 rounded-sm border-black bg-white shadow-neo-sm">
+                  <p class="text-md self-start"><%= comment[0] %></p>
+                  <p class="text-2xl self-start ml-2 text-black"><%= comment[1] %></p>
+                  <p class="text-sm self-end"><%= comment[2] %></p>
                 </div>
-              </div>
-            </form>
-            <div class="">
-              <p class="text-left font-montserrat font-bold mt-8">
-                comments:<br />
-              </p>
-              <div class="text-lg font-oswald font-medium text-slate-700 py-20">
-                <%= account.reviews %>
-              </div>
+              <% } %>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>

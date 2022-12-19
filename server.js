@@ -310,9 +310,45 @@ app.get("/profile/:id", checkAuth, async (req, res) => {
     console.log(err);
     res.redirect("/error");
   });
-  res.render("helperProfile", { account: helperProfile });
+  let reviews = await Review.findAll({
+    where: {
+      helperId: req.params.id,
+    },
+  }).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+  });
+  let comments = [];
+  for (let review of reviews) {
+    let commenter = await User.findOne({
+      where: {
+        id: review.userId
+      }
+    });
+    comments.push([ `${commenter.fname} ${commenter.lname}`, review.review, review.createdAt.toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) ]);
+  }
+  console.log("🚀 ~ file: server.js:321 ~ app.get ~ reviews", reviews)
+  res.render("helperProfile", { account: helperProfile, comments });
+});
+app.post("/profile/:id", checkAuth, async (req, res) => {
+  console.log('review',req.body.review);
+  console.log('helperId',req.params.id);
+  console.log('userId',req.session.user.id);
+  let review = await Review.create({
+    userId: req.session.user.id,
+    helperId: req.params.id,
+    review: req.body.review,
+    rating: 0,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+  });
+  res.redirect("/profile/" + req.params.id);
 });
 
+// HELPER ACCOUNT VIEW ROUTE
 app.get("/helper/:id", checkAuth, async (req, res) => {
   let helper = await Helper.findOne({
     where: {
