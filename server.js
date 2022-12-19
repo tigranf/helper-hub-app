@@ -262,6 +262,23 @@ app.post("/user/edit/:id", checkAuth, async (req, res) => {
   req.session.user = await User.findOne({where: {id: req.params.id}});
   res.render("userProfile", { account: req.session.user });
 });
+app.post("/user/changePass/:id", checkAuth, async (req, res) => {
+  let hashedPass = await bcrypt.hash(req.body.password, 10);
+  await User.update(
+    {
+      password: hashedPass,
+    },
+    {
+      where: { id: req.params.id },
+    }
+  ).catch((err) => {
+    console.log(err);
+    res.redirect("/error");
+    return;
+  });
+  req.session.user = await User.findOne({where: {id: req.params.id}});
+  res.render("userProfile", { account: req.session.user });
+});
 
 // HELPER DASHBOARD
 app.get("/helperDash", checkAuth, (req, res) => {
